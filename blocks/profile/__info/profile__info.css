@@ -1,0 +1,5 @@
+.profile__info {
+  flex-direction: column;
+  max-width: 336px;
+  padding-left: 30px;
+}
