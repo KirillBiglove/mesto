@@ -17,6 +17,14 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__add-button/_position/profile__add-button-position.css);
 @import url(../blocks/profile/__rectangle/profile__rectangle.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/page/__elements/page__elements.css);
+@import url(../blocks/element/element.css);
+@import url(../blocks/element/__main-image/element__main-image.css);
+@import url(../blocks/element/__container/element__container.css);
+@import url(../blocks/element/__text/element__text.css);
+@import url(../blocks/element/__like-image/element__like-image.css);
+
 
 
 
