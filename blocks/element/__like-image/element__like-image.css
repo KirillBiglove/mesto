@@ -1,4 +1,14 @@
 .element__like-image {
- max-height: 19px;
- align-self: center;
+  max-height: 19px;
+  align-self: center;
+  cursor: pointer;
+}
+
+.element__like-image:hover {
+  opacity: 0.6
+}
+
+.element__like-image:active {
+  opacity: 1;
+  background-image: url(../../../images/active_like.svg);
 }
