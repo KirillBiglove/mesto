@@ -29,6 +29,15 @@
 @import url(../blocks/element/__button-like/element__button-like.css);
 @import url(../blocks/element/__like-image/element__like-image.css);
 @import url(../blocks/root/__footer/root__footer.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/root/__popup/root__popup.css);
+@import url(../blocks/popup/__content/popup__content.css);
+@import url(../blocks/popup/__close-btn/popup__close-btn.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__line/popup__line.css);
+@import url(../blocks/popup/__submit-btn/popup__submit-btn.css);
 
 
 
