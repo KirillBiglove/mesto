@@ -9,8 +9,18 @@
 
 @media (max-width: 910px){
   .profile__title {
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 38px;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
   }
 }
+
+@media (max-width: 575px){
+  .profile__title {
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+  }
+}
+

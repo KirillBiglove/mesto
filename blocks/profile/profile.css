@@ -1,3 +1,11 @@
 .profile {
   display: flex;
 }
+
+@media (max-width: 575px){
+  .profile {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+}

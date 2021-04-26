@@ -2,3 +2,9 @@
   max-height: 120px;
   border-radius: 100%;
 }
+
+@media (max-width: 575px){
+  .profile__avatar {
+  max-width: 120px;
+  }
+}

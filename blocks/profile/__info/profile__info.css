@@ -3,3 +3,9 @@
   padding-left: 30px;
   margin: 0;
 }
+
+@media (max-width: 575px){
+  .profile__info {
+  padding: 0;
+  }
+}

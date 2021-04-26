@@ -9,3 +9,8 @@
   border-radius: 2px;
 }
 
+@media (max-width: 575px){
+  .profile__rectangle {
+    width: 282px;
+  }
+}

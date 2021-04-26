@@ -9,3 +9,10 @@
   max-width: 570px;
   }
 }
+
+@media (max-width: 575px){
+  .page__profile {
+  max-width: 282px;
+  padding: 42px 0 0;
+  }
+}
