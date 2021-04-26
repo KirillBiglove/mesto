@@ -4,3 +4,9 @@
   margin: 0 auto;
   padding: 66px 0 60px;
 }
+
+@media (max-width: 910px){
+  .root__footer {
+    max-width: 570px;
+  }
+}

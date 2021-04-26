@@ -2,3 +2,10 @@
   margin-left: 244px;
   margin-top: 35px;
 }
+
+@media (max-width: 910px){
+  .profile__add-button_position {
+    margin-left: 7px;
+    margin-top: 29px;
+  }
+}

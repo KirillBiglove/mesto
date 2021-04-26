@@ -6,3 +6,11 @@
   gap: 20px 17px;
 
 }
+
+@media (max-width: 910px){
+  .page__elements {
+    max-width: 570px;
+    grid-template-columns: repeat(2, max-content);
+    gap: 15px 6px;
+  }
+}

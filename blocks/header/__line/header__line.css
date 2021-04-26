@@ -6,3 +6,15 @@
   background-color: #545454;
   margin: 0;
 }
+
+@media (max-width: 910px){
+  .header__line {
+  width: 570px;
+  }
+}
+
+@media (max-width: 575px){
+  .header__line {
+  width: 320px;
+  }
+}
