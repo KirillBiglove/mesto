@@ -1,13 +1,12 @@
 .profile__add-button {
-  max-width: 150px;
-  min-height: 50px;
   background-color: black;
-  border: none;
   outline: none;
   padding: 0;
-  justify-content: flex-end;
-  align-items: center;
-
+  max-width: 150px;
+  min-height: 50px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 2px;
 }
 
 @media (max-width: 575px){

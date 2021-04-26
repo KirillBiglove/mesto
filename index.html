@@ -1,114 +1,119 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./pages/index.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Место</title>
-    <meta name="description" content="Проектная работа №4">
-  </head>
 
-  <body class="root">
-    <div class="page root__container">
-      <header class="header page__header">
-        <img class="header__logo" src="./images/logo1.svg" alt="логотип в шапке">
-        <hr class="header__line">
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./pages/index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <meta name="description" content="Проектная работа №4">
+</head>
 
-      <main class="content">
-        <section class="profile page__profile">
-          <img class="profile__avatar" src="./images/cousteau.jpg" alt="аватар Жак Ив Кусто">
-          <div class="profile__info">
-            <div class="profile__info_container">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button link" type="submit">
-                <img class="profile__edit-button-image" src="./images/Edit_Button.svg" alt="кнопка редактирования профиля">
-              </button>
-            </div>
-              <h3 class="profile__subtitle">Исследователь океана</h3>
+<body class="root">
+  <div class="page root__container">
+    <header class="header page__header">
+      <img class="header__logo" src="./images/logo1.svg" alt="логотип в шапке">
+      <hr class="header__line">
+    </header>
+
+    <main class="content">
+      <section class="profile page__profile">
+        <img class="profile__avatar" src="./images/cousteau.jpg" alt="аватар Жак Ив Кусто">
+        <div class="profile__info">
+          <div class="profile__info_container">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <button class="profile__edit-button link" type="submit">
+              <img class="profile__edit-button-image" src="./images/Edit_Button.svg" alt="кнопка редактирования профиля">
+            </button>
           </div>
-          <button class="profile__add-button profile__add-button_position link" type="button">
-            <div class="profile__rectangle">
-              <img class="profile__rectangle-plus" src="./images/Vector_plus.svg" alt="картинка плюса в кнопке add">
-            </div>
+          <h3 class="profile__subtitle">Исследователь океана</h3>
+        </div>
+          <button class="profile__add-button link" type="button">
+            <img class="profile__rectangle-plus" src="./images/Vector_plus.svg" alt="кнопка добавить">
           </button>
-        </section>
+      </section>
+<!--
+      <section class="elements page__elements">
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg"
+            alt="картинка Карачаевска">
+          <div class="element__container">
+            <h3 class="element__text">Карачаевск</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png"
+            alt="картинка вида на Эльбрус">
+          <div class="element__container">
+            <h3 class="element__text">Гора Эльбрус</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
+          <div class="element__container">
+            <h3 class="element__text">Домбай</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png"
+            alt="картинка вида на Эльбрус">
+          <div class="element__container">
+            <h3 class="element__text">Гора Эльбрус</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
+          <div class="element__container">
+            <h3 class="element__text">Домбай</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg"
+            alt="картинка Карачаевска">
+          <div class="element__container">
+            <h3 class="element__text">Карачаево-Черкессия</h3>
+            <button class="element__button-like" type="button">
+              <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer root__footer">
+      <img class=footer__image src="./images/Footer.png" alt="основной логоптип футера">
+    </footer>
+  </div>
 
-        <section class="elements page__elements">
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg" alt="картинка Карачаевска">
-            <div class="element__container">
-              <p class="element__text">Карачаевск</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png" alt="картинка вида на Эльбрус">
-            <div class="element__container">
-              <p class="element__text">Гора Эльбрус</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
-            <div class="element__container">
-              <p class="element__text">Домбай</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png" alt="картинка вида на Эльбрус">
-            <div class="element__container">
-              <p class="element__text">Гора Эльбрус</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
-            <div class="element__container">
-              <p class="element__text">Домбай</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-          <div class="element">
-            <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg" alt="картинка Карачаевска">
-            <div class="element__container">
-              <p class="element__text">Карачаево-Черкессия</p>
-              <button class="element__button-like" type="button">
-                <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
-              </button>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="footer root__footer">
-        <img class=footer__image src="./images/Footer.png" alt="основной логоптип футера">
-      </footer>
-      </div>
+  <div class="popup root__popup">
+    <div class="popup__content">
+      <button type="button" class="popup__close-btn link"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__container" method="get" name="form-edit">
+        <input class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто">
+        <hr class="popup__line">
+        <input class="popup__input popup__input_change_profile-subtitle" type="text" name="about"
+          value="Исследователь океана">
+        <hr class="popup__line">
+        <button type="submit" class="popup__save-btn link"></button>
+      </form>
     </div>
-    <div class="popup root__popup">
-      <div class="popup__content">
-        <button type="button" class="popup__close-btn link"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__container" method="get" name="form-edit">
-          <input class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто">
-          <hr class="popup__line">
-          <input class="popup__input popup__input_change_profile-subtitle" type="text" name="about" value="Исследователь океана">
-          <hr class="popup__line">
-          <button type="submit" class="popup__save-btn link"></button>
-        </form>
-      </div>
-      <script defer src="./scripts/index.js"></script>
-  </body>
+  </div>
+    <script defer src="./scripts/index.js"></script>
+</body>
 
 </html>
