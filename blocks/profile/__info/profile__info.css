@@ -1,11 +1,18 @@
 .profile__info {
   max-width: 336px;
-  padding-left: 30px;
-  margin: 0;
+  padding: 0;
+  margin-right: 244px;
+}
+
+@media (max-width: 910px){
+  .profile__info {
+    margin-right: 40px;
+  }
 }
 
 @media (max-width: 575px){
   .profile__info {
   padding: 0;
+  margin: 0;
   }
 }

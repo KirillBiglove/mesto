@@ -1,9 +1,11 @@
 .profile__add-button {
+  min-width: 150px;
+  min-height: 50px;
+  justify-content: flex-end;
+  align-items: center;
   background-color: black;
   outline: none;
   padding: 0;
-  max-width: 150px;
-  min-height: 50px;
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   border-radius: 2px;
@@ -11,6 +13,7 @@
 
 @media (max-width: 575px){
   .profile__add-button {
-    max-width: 282px;
+    margin-top: 36px;
+    min-width: 282px;
   }
 }
