@@ -5,7 +5,7 @@
 }
 
 .element__like-image:hover {
-  opacity: 0.6
+  opacity: 0.6;
 }
 
 .element__like-image:active {
