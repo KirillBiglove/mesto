@@ -5,7 +5,7 @@ let formElement = document.querySelector('.popup__container');
 let saveButton = document.querySelector('.popup__save-btn');
 
 function togglePopup(event) {
-  popup.classList.toggle('popup__opened');
+  popup.classList.toggle('popup_opened');
 }
 
 function openSaveEdit() {
