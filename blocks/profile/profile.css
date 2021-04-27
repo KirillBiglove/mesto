@@ -5,7 +5,7 @@
   justify-content: space-between;
 }
 
-@media (max-width: 575px){
+@media (max-width: 630px){
   .profile {
   flex-direction: column;
   justify-content: center;

@@ -11,3 +11,11 @@
   display: none;
   z-index: 2;
 }
+
+@media (max-width: 630px){
+  .popup__content {
+    max-width: 282px;
+    justify-content: center;
+    align-items: center;
+  }
+}

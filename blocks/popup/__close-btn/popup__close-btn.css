@@ -2,12 +2,24 @@
   width: 40px;
   height: 40px;
   background-image: url(../../../images/Close_Icon.svg);
-  background-size: 40px 40px;
+  background-position: -10px;
   border: none;
   outline: none;
   position: absolute;
-  left: 98.5%;
+  left: 100%;
   top: -10%;
   padding: 0;
   background-color: transparent;
+}
+
+@media (max-width: 630px){
+.popup__close-btn {
+    background-image: url(../../../images/Close_Icon320px.svg);
+    background-repeat: no-repeat;
+    background-position: 2px;
+    left: 89%;
+    top: -12%;
+    width: 26px;
+    height: 26px;
+  }
 }

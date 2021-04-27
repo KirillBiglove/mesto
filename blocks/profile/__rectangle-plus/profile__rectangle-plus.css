@@ -1,3 +1,9 @@
 .profile__rectangle-plus {
   object-fit: cover;
 }
+
+@media (max-width: 630px){
+  .profile__rectangle-plus {
+    max-width: 16px;
+  }
+}

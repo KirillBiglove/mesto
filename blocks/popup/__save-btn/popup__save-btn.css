@@ -8,3 +8,14 @@
   padding: 0;
   margin-top: 18px;
 }
+
+
+@media (max-width: 630px){
+  .popup__save-btn {
+    background-image: url(../../../images/Submit_Button320px.svg);
+    background-repeat: no-repeat;
+    width: 238px;
+    height: 46px;
+    margin: 15px auto 0;
+  }
+}

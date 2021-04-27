@@ -1,6 +1,6 @@
 .popup__input {
   width: 358px;
-  padding-bottom: 13px;
+  padding: 0 0 13px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -12,3 +12,9 @@
   border-bottom: 1px solid rgba( 0, 0, 0, .2);
 }
 
+@media (max-width: 630px){
+  .popup__input {
+    max-width: 238px;
+    margin: 0 22px 30px 22px;
+  }
+}
