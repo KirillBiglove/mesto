@@ -21,11 +21,11 @@
         <div class="profile__info">
           <div class="profile__info-container">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button link" type="button">
+            <button class="profile__edit-button link" type="button" aria-label="edit-button">
               <img class="profile__edit-button-image" src="./images/Edit_Button.svg" alt="кнопка редактирования профиля">
             </button>
           </div>
-          <h3 class="profile__subtitle">Исследователь океана</h3>
+          <p class="profile__subtitle">Исследователь океана</p>
         </div>
           <button class="profile__add-button link" type="button">
             <img class="profile__rectangle-plus" src="./images/Vector_plus.svg" alt="кнопка добавить">
@@ -33,7 +33,7 @@
       </section>
 
       <section class="elements page__elements">
-        <div class="element">
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg"
             alt="картинка Карачаевска">
           <div class="element__container">
@@ -42,8 +42,8 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png"
             alt="картинка вида на Эльбрус">
           <div class="element__container">
@@ -52,8 +52,8 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
           <div class="element__container">
             <h3 class="element__text">Домбай</h3>
@@ -61,8 +61,8 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1404681-unsplash-elbrus.png"
             alt="картинка вида на Эльбрус">
           <div class="element__container">
@@ -71,8 +71,8 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1556355-unsplash-dombay.png" alt="вид на горы">
           <div class="element__container">
             <h3 class="element__text">Домбай</h3>
@@ -80,8 +80,8 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
-        <div class="element">
+        </article>
+        <article class="element">
           <img class="element__main-image" src="./images/kirill-pershin-1088404-unsplash-karachaevsk.jpg"
             alt="картинка Карачаевска">
           <div class="element__container">
@@ -90,11 +90,11 @@
               <img class="element__like-image" src="./images/heart_like.svg" alt="иконка лайка">
             </button>
           </div>
-        </div>
+        </article>
       </section>
     </main>
     <footer class="footer root__footer">
-      <img class=footer__image src="./images/Footer.png" alt="основной логоптип футера">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
 
@@ -104,10 +104,7 @@
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__container" method="get" name="form-edit">
         <input class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто">
-        <hr class="popup__line">
-        <input class="popup__input popup__input_change_profile-subtitle" type="text" name="about"
-          value="Исследователь океана">
-        <hr class="popup__line">
+        <input class="popup__input popup__input_change_profile-subtitle" type="text" name="about" value="Исследователь океана">
         <button type="submit" class="popup__save-btn link"></button>
       </form>
     </div>
