@@ -1,6 +1,21 @@
 .profile__info-container {
+  max-width: 336px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 910px){
+  .profile__info-container {
+    max-width: 282px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 630px){
+  .profile__info-container {
+    max-width: 282px;
+    justify-content: center;
+  }
 }
