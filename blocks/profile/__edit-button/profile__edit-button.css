@@ -11,3 +11,10 @@
 }
 
 
+@media (max-width: 630px){
+  .profile__edit-button {
+    background-image: url(../../../images/Edit_Button_320px.svg);
+    width: 18px;
+    height: 18пшpx;
+  }
+}
