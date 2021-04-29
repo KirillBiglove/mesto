@@ -19,3 +19,8 @@
     margin: 15px auto 0;
   }
 }
+
+.popup__save-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}

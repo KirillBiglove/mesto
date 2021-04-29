@@ -18,7 +18,7 @@ function closePopup() {
 }
 
 function SubmitFormHandler(evt) {
-	evt.preventDefault();
+  evt.preventDefault(); // попробуйте посмотреть в файле, у меня сделано везде одинаково с одинаковым количеством отступов.
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
   closePopup();
