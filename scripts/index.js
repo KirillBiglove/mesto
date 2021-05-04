@@ -33,7 +33,7 @@ popupOpenButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);
 
 // JS - из проектной работы № 4 - FINISH //
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 //JS - из проектной работы № 5 - START //
 
 // addCards
@@ -64,12 +64,15 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+// переменные для функций //
 
 const elementCardsTemplate = document.querySelector('#element-cards-template'); // задаем template
 const addSectionCardsTemplate = document.querySelector('.elements'); // секция куда будут записаны карточки
-const editCardsButton = document.querySelector('.profile__add-button');
-const closeCardsPopup = document.querySelector('.popup__close-cards-btn');
-const cardsPopup = document.querySelector('.popup__cards');
+const editCardsButton = document.querySelector('.profile__add-button'); // кнопка открытия редактирования карточек с картинками и тектом
+const closeCardsPopup = document.querySelector('.popup__close-cards-btn'); // кнопка закрытия попапа с карточками
+const cardsPopup = document.querySelector('.popup__cards'); // сам попап с карточками
+const inputMainImageCards = document.querySelector('.popup__input_change_main-image-cards');
+const inputTextCards = document.querySelector('.popup__input_change_text-cards');
 
 // функция загрузки карточек из массива на основную страницу //
 
@@ -104,3 +107,23 @@ function closeEditCardsButton() {
 // назначение слушателей //
 editCardsButton.addEventListener('click', openEditCardsButton);
 closeCardsPopup.addEventListener('click', closeEditCardsButton);
+
+
+
+function editCardsFormHandler(evt) {
+  evt.preventDefault();
+  const addNewCard = elementCardsTemplate.content.querySelector('.element');
+  const cardImage = addNewCard.querySelector('.element__main-image'); // место для картинки
+  const cardText = addNewCard.querySelector('.element__text'); // место для текста
+
+
+  inputMainImageCards.value = cardsImage.src;
+  inputTextCards.value = cardsText.textContent;
+
+  addNewCard.prepend(addSectionCardsTemplate);
+  return addNewCard;
+
+
+  closeEditCardsButton();
+
+}
