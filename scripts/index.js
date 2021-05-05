@@ -92,7 +92,7 @@ function addCard(image, title) {
   cloneNewCards.querySelector('.element__button-like').addEventListener('click', function(evt){
     evt.target.classList.toggle('element__button-like_active');
   });
-  
+
   return cloneNewCards;
 }
 
@@ -127,6 +127,4 @@ cardsForm.addEventListener('submit', function (evt) {
   closeEditCardsButton();
 });
 
-//likeButton.addEventListener('click', function(evt){
-  //evt.target.classList.toggle('.element__button-like_active');
-//})
+
