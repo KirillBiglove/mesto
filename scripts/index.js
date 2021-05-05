@@ -71,20 +71,29 @@ const addSectionCardsTemplate = document.querySelector('.elements'); // секц
 const editCardsButton = document.querySelector('.profile__add-button'); // кнопка открытия редактирования карточек с картинками и тектом
 const closeCardsPopup = document.querySelector('.popup__close-cards-btn'); // кнопка закрытия попапа с карточками
 const cardsPopup = document.querySelector('.popup__cards'); // сам попап с карточками
-const inputMainImageCards = document.querySelector('.popup__input_change_main-image-cards');
-const inputTextCards = document.querySelector('.popup__input_change_text-cards');
+const inputMainImageCards = document.querySelector('.popup__input_change_main-image-cards'); // переменные куда будет записанна ссылка на картинку
+const inputTextCards = document.querySelector('.popup__input_change_text-cards'); // переменная куда будет записан город в карточке с картинкой
+const cardsForm = document.querySelector('.popup__cards-container'); // форма popup на создание карточек
+const cardsTemplateContent = elementCardsTemplate.content; // переменная содержимого tamplate
+const cardImage = cardsTemplateContent.querySelector('.element__main-image'); // место для картинки
+const cardText = cardsTemplateContent.querySelector('.element__text'); // место для текста
+const likeButton = cardsTemplateContent.querySelector('.element__button-like');
+
+
 
 // функция загрузки карточек из массива на основную страницу //
 
 function addCard(image, title) {
-  const addNewCard = elementCardsTemplate.content.querySelector('.element').cloneNode(true); // клонируем карточки
-  const cardImage = addNewCard.querySelector('.element__main-image'); // место для картинки
-  const cardText = addNewCard.querySelector('.element__text'); // место для текста
-
   cardImage.src = image;
   cardText.textContent = title;
   cardImage.alt = title;
-  return addNewCard;
+  const cloneNewCards = cardsTemplateContent.querySelector('.element').cloneNode(true);
+
+  cloneNewCards.querySelector('.element__button-like').addEventListener('click', function(evt){
+    evt.target.classList.toggle('element__button-like_active');
+  });
+  
+  return cloneNewCards;
 }
 
 // берем и назначаем методом перебора нужные нам селекторы для функции загрузки карточек //
@@ -108,22 +117,16 @@ function closeEditCardsButton() {
 editCardsButton.addEventListener('click', openEditCardsButton);
 closeCardsPopup.addEventListener('click', closeEditCardsButton);
 
-
-
-function editCardsFormHandler(evt) {
-  evt.preventDefault();
-  const addNewCard = elementCardsTemplate.content.querySelector('.element');
-  const cardImage = addNewCard.querySelector('.element__main-image'); // место для картинки
-  const cardText = addNewCard.querySelector('.element__text'); // место для текста
-
-
-  inputMainImageCards.value = cardsImage.src;
-  inputTextCards.value = cardsText.textContent;
-
-  addNewCard.prepend(addSectionCardsTemplate);
-  return addNewCard;
-
-
+cardsForm.addEventListener('submit', function (evt) {
+  evt.preventDefault(); // функция добавления карточки после нажатия на кнопку сохранить //
+  const image = inputMainImageCards.value;
+  const title = inputTextCards.value;
+  const addNewCards = addCard(image, title);
+  addSectionCardsTemplate.prepend(addNewCards);
+  cardsForm.reset();
   closeEditCardsButton();
+});
 
-}
+//likeButton.addEventListener('click', function(evt){
+  //evt.target.classList.toggle('.element__button-like_active');
+//})
