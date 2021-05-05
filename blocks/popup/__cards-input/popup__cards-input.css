@@ -19,3 +19,6 @@
   }
 }
 
+.popup__cards-input:focus {
+  color: black;
+}

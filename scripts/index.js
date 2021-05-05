@@ -77,7 +77,7 @@ const cardsForm = document.querySelector('.popup__cards-container'); // форм
 const cardsTemplateContent = elementCardsTemplate.content; // переменная содержимого tamplate
 const cardImage = cardsTemplateContent.querySelector('.element__main-image'); // место для картинки
 const cardText = cardsTemplateContent.querySelector('.element__text'); // место для текста
-const likeButton = cardsTemplateContent.querySelector('.element__button-like');
+const deleteCardButton = cardsTemplateContent.querySelector('.element__delete-btn')
 
 
 
@@ -89,9 +89,16 @@ function addCard(image, title) {
   cardImage.alt = title;
   const cloneNewCards = cardsTemplateContent.querySelector('.element').cloneNode(true);
 
+  //  назначение слушателя кнопке like на положение active
   cloneNewCards.querySelector('.element__button-like').addEventListener('click', function(evt){
     evt.target.classList.toggle('element__button-like_active');
   });
+
+  // назначение слушателя на удаление карточки по нажатию на кнопку с мусоркой
+  cloneNewCards.querySelector('.element__delete-btn').addEventListener('click', function(evt){
+    const closeCardButton = cloneNewCards.closest('.element');
+    closeCardButton.remove();
+  })
 
   return cloneNewCards;
 }

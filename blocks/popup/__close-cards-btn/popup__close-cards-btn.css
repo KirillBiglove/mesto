@@ -9,8 +9,7 @@
   left: 100%;
   top: -10%;
   padding: 0;
-  
-
+  background-color: transparent;
 }
 
 @media (max-width: 630px) {
