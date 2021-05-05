@@ -6,7 +6,7 @@
   font-size: 14px;
   line-height: 17px;
   margin: 0 0 30px;
-  color: #C4C4C4;
+  color: rgba(0, 0, 0, 1);
   outline: none;
   border: 0;
   border-bottom: 1px solid rgba( 0, 0, 0, .2);
@@ -19,6 +19,3 @@
   }
 }
 
-.popup__cards-input:focus {
-  color: black;
-}
