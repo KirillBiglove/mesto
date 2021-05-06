@@ -124,8 +124,9 @@ function closeEditCardsButton() {
 editCardsButton.addEventListener('click', openEditCardsButton);
 closeCardsPopup.addEventListener('click', closeEditCardsButton);
 
+// функция добавления карточки после нажатия на кнопку сохранить //
 cardsForm.addEventListener('submit', function (evt) {
-  evt.preventDefault(); // функция добавления карточки после нажатия на кнопку сохранить //
+  evt.preventDefault(); 
   const image = inputMainImageCards.value;
   const title = inputTextCards.value;
   const addNewCards = addCard(image, title);

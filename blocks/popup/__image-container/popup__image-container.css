@@ -1,0 +1,9 @@
+.popup__image-container {
+  max-width: 865px;
+  margin: 41px auto 0;
+  padding: 0;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+    
+}
