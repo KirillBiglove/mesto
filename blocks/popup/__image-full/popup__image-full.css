@@ -5,3 +5,9 @@
     margin-right: 40px;
     padding: 0;
 }
+
+@media (max-width: 610px) {
+  .popup__image-full {
+    margin: 0;
+  }
+}

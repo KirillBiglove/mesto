@@ -7,3 +7,17 @@
   flex-direction: column;
     
 }
+
+@media (max-width: 630px) {
+  .popup__image-container {
+    max-width: 550px;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .popup__image-container {
+    max-width: 240px;
+    
+  }
+}
