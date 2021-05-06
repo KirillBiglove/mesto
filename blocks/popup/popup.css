@@ -7,8 +7,11 @@
   right: 0;
   left: 0;
   bottom: 0;
-  display: none;
+  display: flex;
+  visibility: hidden;
   z-index: 2;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.5s linear;
 }
 
 @media (max-width: 630px){
