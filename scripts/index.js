@@ -77,7 +77,11 @@ const cardsForm = document.querySelector('.popup__cards-container'); // форм
 const cardsTemplateContent = elementCardsTemplate.content; // переменная содержимого tamplate
 const cardImage = cardsTemplateContent.querySelector('.element__main-image'); // место для картинки
 const cardText = cardsTemplateContent.querySelector('.element__text'); // место для текста
-const deleteCardButton = cardsTemplateContent.querySelector('.element__delete-btn')
+const deleteCardButton = cardsTemplateContent.querySelector('.element__delete-btn') // кнопка удаления карточек
+const popupOpenImage = document.querySelector('.popup__open-image'); // сам попап с открытием большой картинки
+const openImageValue = document.querySelector('.popup__image-full'); // переменные куда будут записаны данные с клика для картинки
+const imageTextValue = document.querySelector('.popup__image-text'); // переменные куда будут записаны данные с клика для текста
+const popupFullImageCloseButton = document.querySelector('.popup__image-full-close-btn'); // кнопка закрытия большой картинки
 
 
 
@@ -100,6 +104,13 @@ function addCard(image, title) {
     closeCardButton.remove();
   })
 
+  // открытие большой картинки по нажатию мыши //
+  cloneNewCards.querySelector('.element__main-image').addEventListener('click', function(evt){
+    popupOpenImage.classList.add('popup_opened');
+    openImageValue.src = evt.target.src;
+    imageTextValue.textContent = evt.target.alt;
+    popupOpenImage.alt = evt.target.alt;
+  })
   return cloneNewCards;
 }
 
@@ -119,10 +130,17 @@ function openEditCardsButton() {
 function closeEditCardsButton() {
   cardsPopup.classList.remove('popup_opened');
 };
+// функция закрытия full image //
+
+function closeFullImageButton() {
+  popupOpenImage.classList.remove('popup_opened');
+}
 
 // назначение слушателей //
+popupFullImageCloseButton.addEventListener('click', closeFullImageButton);
 editCardsButton.addEventListener('click', openEditCardsButton);
 closeCardsPopup.addEventListener('click', closeEditCardsButton);
+
 
 // функция добавления карточки после нажатия на кнопку сохранить //
 cardsForm.addEventListener('submit', function (evt) {
@@ -134,5 +152,6 @@ cardsForm.addEventListener('submit', function (evt) {
   cardsForm.reset();
   closeEditCardsButton();
 });
+
 
 
