@@ -70,15 +70,15 @@ const elementCardsTemplate = document.querySelector('#element-cards-template'); 
 const addSectionCardsTemplate = document.querySelector('.elements'); // секция куда будут записаны карточки
 const editCardsButton = document.querySelector('.profile__add-button'); // кнопка открытия редактирования карточек с картинками и тектом
 const closeCardsPopup = document.querySelector('.popup__close-cards-btn'); // кнопка закрытия попапа с карточками
-const cardsPopup = document.querySelector('.popup__cards'); // сам попап с карточками
-const inputMainImageCards = document.querySelector('.popup__input_change_main-image-cards'); // переменные куда будет записанна ссылка на картинку
-const inputTextCards = document.querySelector('.popup__input_change_text-cards'); // переменная куда будет записан город в карточке с картинкой
+const cardsPopup = document.querySelector('.popup__add-cards'); // сам попап с карточками
+const inputMainImageCards = document.querySelector('.popup__input_change-text'); // переменные куда будет записанна ссылка на картинку
+const inputTextCards = document.querySelector('.popup__input_change-image'); // переменная куда будет записан город в карточке с картинкой
 const cardsForm = document.querySelector('.popup__cards-container'); // форма popup на создание карточек
 const cardsTemplateContent = elementCardsTemplate.content; // переменная содержимого tamplate
 const cardImage = cardsTemplateContent.querySelector('.element__main-image'); // место для картинки
 const cardText = cardsTemplateContent.querySelector('.element__text'); // место для текста
 const deleteCardButton = cardsTemplateContent.querySelector('.element__delete-btn') // кнопка удаления карточек
-const popupOpenImage = document.querySelector('.popup__open-image'); // сам попап с открытием большой картинки
+const popupOpenImage = document.querySelector('.popup__full-image'); // сам попап с открытием большой картинки
 const openImageValue = document.querySelector('.popup__image-full'); // переменные куда будут записаны данные с клика для картинки
 const imageTextValue = document.querySelector('.popup__image-text'); // переменные куда будут записаны данные с клика для текста
 const popupFullImageCloseButton = document.querySelector('.popup__image-full-close-btn'); // кнопка закрытия большой картинки
@@ -144,7 +144,7 @@ closeCardsPopup.addEventListener('click', closeEditCardsButton);
 
 // функция добавления карточки после нажатия на кнопку сохранить //
 cardsForm.addEventListener('submit', function (evt) {
-  evt.preventDefault(); 
+  evt.preventDefault();
   const image = inputMainImageCards.value;
   const title = inputTextCards.value;
   const addNewCards = addCard(image, title);
