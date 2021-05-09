@@ -42,7 +42,7 @@
   <!-- profilePopup -->
   <div class="popup root__popup">
     <div class="popup__content">
-      <button type="button" class="popup__close-btn link"></button>
+      <button type="button" class="popup__close-btn link" ></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__container" method="get" name="form-edit">
         <input class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто">
@@ -54,7 +54,7 @@
   <!-- addCardsPopup -->
   <div class="popup root__popup popup-add-cards">
     <div class="popup__content">
-      <button type="button" class="popup__close-cards-btn link"></button>
+      <button type="button" class="popup__close-btn link"></button>
       <h2 class="popup__cards-title">Новое место</h2>
       <form class="popup__cards-container" method="get" name="form-cards-edit">
         <input class="popup__cards-input popup__cards-input_text" type="text" name="name" value="" placeholder="Название">
@@ -66,8 +66,8 @@
   <!-- openFullImageFromCards -->
   <div class="popup root__popup-open-image popup-full-image">
     <div class="popup__image-container">
-      <button type="button" class="popup__image-full-close-btn link"></button>
-      <img class="popup__image-full" src="#" alt="''">
+      <button type="button" class="popup__image-full-close-btn link" id="#close-button"></button>
+      <img class="popup__image-full" src="#" alt="#">
       <p class="popup__image-text"></p>
     </div>
   </div>
@@ -75,7 +75,7 @@
   <template id="element-cards-template">
     <article class="element">
       <div class="element__image-container">
-        <img class="element__main-image" src="''" alt="''">
+        <img class="element__main-image" src="#" alt="#">
         <button class="element__delete-btn" type="button" aria-label="delete-button"></button>
       </div>
       <div class="element__container">
