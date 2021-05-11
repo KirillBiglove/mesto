@@ -1,5 +1,5 @@
 const popupOpenButton = document.querySelector('.profile__edit-button'); // открыть попап
-const profilePopup = document.querySelector('.popup__profile'); // переменная самого попапа
+const profilePopup = document.querySelector('.popup-profile'); // переменная самого попапа
 const formElement = document.querySelector('.popup__container'); // переменная формы
 const profileName = document.querySelector('.profile__title'); // переменные куда будет записана информация из попапа
 const profileAbout = document.querySelector('.profile__subtitle'); // аналогичная переменная для записи информации
