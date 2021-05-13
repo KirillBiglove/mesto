@@ -100,7 +100,7 @@ function addCard(image, title) {
   cardImage.alt = title;
 
   //  назначение слушателя кнопке like на положение active
-    cloneNewCard.querySelector('.element__button-like').addEventListener('click', likeButton);
+  cloneNewCard.querySelector('.element__button-like').addEventListener('click', likeButton);
 
   // назначение слушателя на удаление карточки по нажатию на кнопку с мусоркой
   cloneNewCard.querySelector('.element__delete-btn').addEventListener('click', deleteCard)
@@ -129,14 +129,13 @@ popupFullImageCloseButton.addEventListener('click', () => {
   closePopup(popupOpenImage);
 });
 
-function handleClickEditProfileButton() {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
+
+function handleClickAddButton() {
   openPopup(cardsPopup)
 };
 
 // слушатель на открытие формы добавления карточки //
-editProfileButton.addEventListener('click', handleClickEditProfileButton);
+editProfileButton.addEventListener('click', handleClickAddButton);
 
 
 // функция добавления карточки после нажатия на кнопку сохранить //
