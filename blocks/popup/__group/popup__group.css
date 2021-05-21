@@ -1,0 +1,17 @@
+.popup__group {
+  padding: 0;
+  border: 0;
+  margin: 0 0 30px;
+  min-height: 28px;
+}
+
+.popup__group:last-of-type {
+  margin: 0;
+}
+
+@media (max-width: 630px){
+  .popup__group {
+    max-width: 238px;
+
+  }
+}

@@ -44,11 +44,15 @@
     <div class="popup__content">
       <button type="button" class="popup__close-btn link" ></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__container" method="get" name="form-edit">
-        <input id="popup__input_type_name" class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-        <span id="name-error" class="form__input-error"></span>
-        <input id="popup__input_type_about" class="popup__input popup__input_change_profile-subtitle" type="text" name="about" value="Исследователь океана" minlength="2" maxlength="200" required>
-        <span id="about-error" class="form__input-error"></span>
+      <form class="popup__form popup__container" method="get" name="form-edit" novalidate>
+        <fieldset class="popup__group">
+          <input id="popup__input_type_name" class="popup__input popup__input_change_profile-title" type="text" name="name" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+          <span id="popup__input_type_name-error" class="popup__error"></span>
+        </fieldset>
+        <fieldset class="popup__group">
+          <input id="popup__input_type_about" class="popup__input popup__input_change_profile-subtitle" type="text" name="about" value="Исследователь океана" minlength="2" maxlength="200" required>
+          <span id="popup__input_type_about-error" class="popup__error"></span>
+        </fieldset>
         <button type="submit" class="popup__button popup__save-btn"></button>
       </form>
     </div>
@@ -58,11 +62,15 @@
     <div class="popup__content">
       <button type="button" class="popup__close-btn link"></button>
       <h2 class="popup__cards-title">Новое место</h2>
-      <form class="popup__form popup__cards-container" method="get" name="form-cards-edit">
-        <input id="popup__input_type_title" class="popup__input popup__cards-input_text" type="text" name="title" value="" placeholder="Название" minlength="1" maxlength="30" required>
-        <span id="title-error" class="form__input-error"></span>
-        <input id="popup__input_type_image" class="popup__input popup__cards-input_image" type="url" name="image" value="" placeholder="Ссылка на картинку" required>
-        <span id="url-error" class="form__input-error"></span>
+      <form class="popup__form popup__cards-container" method="get" name="form-cards-edit" novalidate>
+        <fieldset class="popup__group">
+          <input id="popup__input_type_title" class="popup__input popup__cards-input_text" type="text" name="title" value="" placeholder="Название" minlength="1" maxlength="30" required>
+          <span id="popup__input_type_title-error" class="popup__error"></span>
+        </fieldset>
+        <fieldset class="popup__group">
+          <input id="popup__input_type_image" class="popup__input popup__cards-input_image" type="url" name="image" value="" placeholder="Ссылка на картинку" required>
+          <span id="popup__input_type_image-error" class="popup__error"></span>
+        </fieldset>
         <button type="submit" class="popup__button popup__save-btn"></button>
       </form>
     </div>

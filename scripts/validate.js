@@ -1,34 +1,41 @@
-const hideInputError = (formElement, inputElement) => {
-    const { inputErrorClass, errorClass } = config;
+const hideInputError = (formElement, inputElement, errorsClass) => {
+    const { inputErrorClass, errorClass } = errorsClass;
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(inputErrorClass);
+    errorElement.classList.remove(errorClass);
+    errorElement.textContent = '';
 }
 
-const showInputError = (formELement, inputElement) => {
-    const { inputErrorClass, errorClass } = config;
+const showInputError = (formElement, inputElement, errorsClass) => {
+    const { inputErrorClass, errorClass } = errorsClass;
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(inputErrorClass);
-    errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.add(errorClass);
+    errorElement.textContent = inputElement.validationMessage;
+
+
 }
 
 
-const checkInputValidity = (inputElement, formElement) => {
-    console.log(inputElement);
+const checkInputValidity = (formElement, inputElement, errorsClass) => {
     if (inputElement.validity.valid) {
-        hideInputError(formElement, inputElement);
+        hideInputError(formElement, inputElement, errorsClass);
     }
     else {
-        showInputError(formElement, inputElement);
+        showInputError(formElement, inputElement, errorsClass);
     }
 }
 
 const setEventListeners = (formElement) => {
-    const { inputSelector, ...restConfig } = config;
+    const { inputSelector, submitButtonSelector, inactiveButtonClass, ...errorsClass } = config;
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    })
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+    const buttonElement = formElement.querySelector(submitButtonSelector);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-            checkInputValidity(inputElement);
+            checkInputValidity(formElement, inputElement, errorsClass);
         })
     })
 }
@@ -38,6 +45,6 @@ const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(formSelector));
 
     formList.forEach((formElement) => {
-        setEventListeners(formElement);
+        setEventListeners(formElement, restConfig);
     })
 }
