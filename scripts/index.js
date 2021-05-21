@@ -1,3 +1,14 @@
+const config = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+};
+
+enableValidation(config);
+
 const popupOpenButton = document.querySelector('.profile__edit-button'); // открыть попап
 const profilePopup = document.querySelector('.popup-profile'); // переменная самого попапа
 const formElement = document.querySelector('.popup__container'); // переменная формы
@@ -153,4 +164,5 @@ cardsForm.addEventListener('submit', (evt) => {
 closeCardsPopup.addEventListener('click', () => {
   closePopup(cardsPopup);
 });
+
 
