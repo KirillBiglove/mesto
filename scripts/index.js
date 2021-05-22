@@ -90,8 +90,8 @@ formElement.addEventListener('submit', submitFormHandler);
 popupOpenButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-  clearInputErrors(formList);
   openPopup(profilePopup);
+  clearInputErrors(formList);
 });
  //слушатель на закрытие редактирования //
 popupCloseButton.addEventListener('click', () => {
