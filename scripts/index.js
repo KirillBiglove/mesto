@@ -10,6 +10,7 @@ const config = {
 enableValidation(config);
 
 const formList = document.querySelectorAll('.popup__form');
+const inputElement = document.querySelectorAll('.popup__input');
 const popupOpenButton = document.querySelector('.profile__edit-button'); // открыть попап
 const profilePopup = document.querySelector('.popup-profile'); // переменная самого попапа
 const formElement = document.querySelector('.popup__container'); // переменная формы
@@ -76,13 +77,13 @@ function submitFormHandler(evt) {
   closePopup(profilePopup);
 }
 
-//function clearInpustAfterClose() {
-//  const formElement = Array.from(document.querySelectorAll('.popup__form'));
-//  const formElementArr = Array.from(formElement);
-//  formElementArr.forEach((item) => {
-//    item.reset();
-//  })
-//};
+function clearInputAfterClose() {
+  const formElement = Array.from(document.querySelectorAll('.popup__form'));
+  const formElementArr = Array.from(formElement);
+  formElementArr.forEach((item) => {
+    item.reset();
+  })
+};
 
 formElement.addEventListener('submit', submitFormHandler);
 
@@ -91,8 +92,9 @@ popupOpenButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
   openPopup(profilePopup);
-  clearInputErrors(formList);
+  //clearInputErrors(formList);
 });
+
  //слушатель на закрытие редактирования //
 popupCloseButton.addEventListener('click', () => {
   closePopup(profilePopup);
@@ -168,6 +170,8 @@ popupFullImageCloseButton.addEventListener('click', () => {
 
 
 function handleClickAddButton() {
+  clearInputAfterClose()
+  //clearInputErrors(formList);
   openPopup(cardsPopup)
 };
 
@@ -182,8 +186,6 @@ cardsForm.addEventListener('submit', (evt) => {
   const title = inputTextCards.value;
   const addNewCard = addCard(image, title);
   addSectionCardsTemplate.prepend(addNewCard);
-  // cardsForm.reset();
-  clearInputErrors(formList);
   closePopup(cardsPopup);
 });
 
