@@ -38,15 +38,24 @@ const deleteCard = (evt) => {
   evt.target.closest('.element').remove(); // удаление карточки
 }
 
-
 // функция открытия Popup //
 function openPopup(openedPopup) {
   openedPopup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeKeydownEsc);
 }
 
 // функция закрытия Popup //
 function closePopup(closedPopup) {
   closedPopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeKeydownEsc);
+
+}
+
+function closeKeydownEsc (evt) {
+  if ( evt.key === "Escape") {
+    const closeKeyPopup = document.querySelector('.popup_opened');
+    closePopup(closeKeyPopup);
+  }
 }
 
 // функция отправки формы + замена значений profileName и profileAbout при сохранении в Popup //
