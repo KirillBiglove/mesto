@@ -51,10 +51,19 @@ function closePopup(closedPopup) {
 
 }
 
+// фцнция закрытия popup на кнопку esc //
 function closeKeydownEsc (evt) {
   if ( evt.key === "Escape") {
     const closeKeyPopup = document.querySelector('.popup_opened');
     closePopup(closeKeyPopup);
+  }
+}
+
+// функция закрытия popup при клике на overlay вокруг попапов //
+function closeOverlayMouseClick (evt) {
+  const closeMousePopup = document.querySelector('.popup_opened');
+  if (evt.target === evt.currentTarget) {
+    closePopup(closeMousePopup);
   }
 }
 
@@ -174,4 +183,8 @@ closeCardsPopup.addEventListener('click', () => {
   closePopup(cardsPopup);
 });
 
+// слушатели на закрытие попапов кликом на overlay //
+cardsPopup.addEventListener('mousedown', closeOverlayMouseClick);
+profilePopup.addEventListener('mousedown', closeOverlayMouseClick);
+popupOpenImage.addEventListener('mousedown', closeOverlayMouseClick);
 
