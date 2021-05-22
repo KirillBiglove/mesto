@@ -53,6 +53,17 @@ const setEventListeners = (formElement) => {
     toggleButtonState(buttonElement, inputList);
 }
 
+const clearInputErrors = (formList) => {
+  const {inputSelector} = config;
+  formList.forEach(formElement => {
+    const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+    inputList.forEach(inputElement => {
+      hideInputError(formElement, inputElement, config);
+    })
+})
+}
+
+
 const enableValidation = (config) => {
     const { formSelector, ...restConfig } = config;
     const formList = Array.from(document.querySelectorAll(formSelector));

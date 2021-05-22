@@ -9,6 +9,7 @@ const config = {
 
 enableValidation(config);
 
+const formList = document.querySelectorAll('.popup__form');
 const popupOpenButton = document.querySelector('.profile__edit-button'); // открыть попап
 const profilePopup = document.querySelector('.popup-profile'); // переменная самого попапа
 const formElement = document.querySelector('.popup__container'); // переменная формы
@@ -27,9 +28,10 @@ const closeCardsPopup = cardsPopup.querySelector('.popup__close-btn'); // кно
 const inputMainImageCards = document.querySelector('.popup__input_change-image'); // переменные куда будет записанна ссылка на картинку
 const inputTextCards = document.querySelector('.popup__input_change-text'); // переменная куда будет записан город в карточке с картинкой
 const popupOpenImage = document.querySelector('.popup-full-image'); // сам попап с открытием большой картинки
-const openImageValue = document.querySelector('.popup__image-full'); // переменные куда будут записаны данные с клика для картинки
+const imageValue = document.querySelector('.popup__image-full'); // переменные куда будут записаны данные с клика для картинки
 const imageTextValue = document.querySelector('.popup__image-text'); // переменные куда будут записаны данные с клика для текста
 const popupFullImageCloseButton = document.querySelector('.popup__image-full-close-btn'); // кнопка закрытия большой картинки
+
 const likeButton = (evt) => {
   evt.target.classList.toggle('element__button-like_active'); // лайк
 }
@@ -61,9 +63,8 @@ function closeKeydownEsc (evt) {
 
 // функция закрытия popup при клике на overlay вокруг попапов //
 function closeOverlayMouseClick (evt) {
-  const closeMousePopup = document.querySelector('.popup_opened');
   if (evt.target === evt.currentTarget) {
-    closePopup(closeMousePopup);
+    closePopup(evt.currentTarget);
   }
 }
 
@@ -75,12 +76,21 @@ function submitFormHandler(evt) {
   closePopup(profilePopup);
 }
 
+//function clearInpustAfterClose() {
+//  const formElement = Array.from(document.querySelectorAll('.popup__form'));
+//  const formElementArr = Array.from(formElement);
+//  formElementArr.forEach((item) => {
+//    item.reset();
+//  })
+//};
+
 formElement.addEventListener('submit', submitFormHandler);
 
  // слушатель на открытие редактирования //
 popupOpenButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
+  clearInputErrors(formList);
   openPopup(profilePopup);
 });
  //слушатель на закрытие редактирования //
@@ -88,9 +98,7 @@ popupCloseButton.addEventListener('click', () => {
   closePopup(profilePopup);
 });
 
-// JS - из проектной работы № 4 - FINISH //
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//JS - из проектной работы № 5 - START //
+
 
 // addCards массив //
 const initialCards = [
@@ -147,9 +155,9 @@ initialCards.forEach((item) => {
 
 // функция открытия full image //
 function openEditCardsButton(evt) {
-  openImageValue.src = evt.target.src;
+  imageValue.src = evt.target.src;
   imageTextValue.textContent = evt.target.alt;
-  popupOpenImage.alt = evt.target.alt;
+  imageValue.alt = evt.target.alt;
   openPopup(popupOpenImage);
 };
 
@@ -174,7 +182,8 @@ cardsForm.addEventListener('submit', (evt) => {
   const title = inputTextCards.value;
   const addNewCard = addCard(image, title);
   addSectionCardsTemplate.prepend(addNewCard);
-  cardsForm.reset();
+  // cardsForm.reset();
+  clearInputErrors(formList);
   closePopup(cardsPopup);
 });
 
