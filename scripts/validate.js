@@ -12,8 +12,6 @@ const showInputError = (formElement, inputElement, errorsClass) => {
     inputElement.classList.add(inputErrorClass);
     errorElement.classList.add(errorClass);
     errorElement.textContent = inputElement.validationMessage;
-
-
 }
 
 
@@ -26,6 +24,19 @@ const checkInputValidity = (formElement, inputElement, errorsClass) => {
     }
 }
 
+const hazInvalidInput = (inputList) => {
+  return inputList.some(inputElement => !inputElement.validity.valid);
+}
+
+const toggleButtonState = (buttonElement, inputList) => {
+  if (hazInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+  }
+  else {
+    buttonElement.disabled = false;
+  }
+}
+
 const setEventListeners = (formElement) => {
     const { inputSelector, submitButtonSelector, inactiveButtonClass, ...errorsClass } = config;
     formElement.addEventListener('submit', (evt) => {
@@ -36,8 +47,10 @@ const setEventListeners = (formElement) => {
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement, errorsClass);
-        })
+            toggleButtonState(buttonElement, inputList)
+        });
     })
+    toggleButtonState(buttonElement, inputList);
 }
 
 const enableValidation = (config) => {
