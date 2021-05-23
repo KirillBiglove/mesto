@@ -66,11 +66,13 @@ const setEventListeners = (formElement) => {
 }
 
 const clearInputErrors = (formList) => {
-  const {inputSelector} = config;
+  const {inputSelector, submitButtonSelector, inactiveButtonClass } = config;
   formList.forEach(formElement => {
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+    const buttonElement = formElement.querySelector(submitButtonSelector);
     inputList.forEach(inputElement => {
       hideInputError(formElement, inputElement, config);
+      disableButton(buttonElement, inactiveButtonClass);
     })
 })
 }

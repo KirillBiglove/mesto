@@ -171,7 +171,7 @@ popupFullImageCloseButton.addEventListener('click', () => {
 
 function handleClickAddButton() {
   clearInputAfterClose()
-  //clearInputErrors(formList);
+  clearInputErrors(formList);
   openPopup(cardsPopup)
 };
 
