@@ -25,6 +25,7 @@ const cardsTemplateContent = elementCardsTemplate.content.querySelector('.elemen
 const editProfileButton = document.querySelector('.profile__add-button'); // кнопка открытия редактирования карточек с картинками и тектом
 const cardsForm = document.querySelector('.popup__cards-container'); // форма popup на создание карточек
 const cardsPopup = document.querySelector('.popup-add-cards'); // сам попап с карточками
+const buttonElement = cardsPopup.querySelector('.popup__button'); // переменная кнопки сохранить из попапа с карточками
 const closeCardsPopup = cardsPopup.querySelector('.popup__close-btn'); // кнопка закрытия попапа с карточками
 const inputMainImageCards = document.querySelector('.popup__input_change-image'); // переменные куда будет записанна ссылка на картинку
 const inputTextCards = document.querySelector('.popup__input_change-text'); // переменная куда будет записан город в карточке с картинкой
@@ -45,6 +46,7 @@ const deleteCard = (evt) => {
 function openPopup(openedPopup) {
   openedPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closeKeydownEsc);
+  formElement.reset();
 }
 
 // функция закрытия Popup //
@@ -77,13 +79,13 @@ function submitFormHandler(evt) {
   closePopup(profilePopup);
 }
 
-function clearInputAfterClose() {
-  const formElement = Array.from(document.querySelectorAll('.popup__form'));
-  const formElementArr = Array.from(formElement);
-  formElementArr.forEach((item) => {
-    item.reset();
-  })
-};
+//function clearInputAfterClose() {
+//  const formElement = Array.from(document.querySelectorAll('.popup__form'));
+//  const formElementArr = Array.from(formElement);
+//  formElementArr.forEach((item) => {
+//    item.reset();
+//  })
+//};
 
 formElement.addEventListener('submit', submitFormHandler);
 
@@ -92,7 +94,6 @@ popupOpenButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
   openPopup(profilePopup);
-  //clearInputErrors(formList);
 });
 
  //слушатель на закрытие редактирования //
@@ -170,8 +171,10 @@ popupFullImageCloseButton.addEventListener('click', () => {
 
 
 function handleClickAddButton() {
-  clearInputAfterClose()
-  clearInputErrors(formList);
+  //clearInputAfterClose()
+  //clearInputErrors(formList);
+  buttonElement.disabled = true;
+  cardsForm.reset();
   openPopup(cardsPopup)
 };
 
