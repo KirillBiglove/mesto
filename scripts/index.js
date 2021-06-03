@@ -18,7 +18,7 @@ const profileName = document.querySelector('.profile__title'); // перемен
 const profileAbout = document.querySelector('.profile__subtitle'); // аналогичная переменная для записи информации
 const nameInput = document.querySelector('.popup__input_change_profile-title'); // переменная откуда информация будет записана в profileName
 const aboutInput = document.querySelector('.popup__input_change_profile-subtitle'); //переменная откуда информация будет записана в profileAbout
-const popupCloseButton = document.querySelector('.popup__close-btn');
+const popupCloseButton = document.querySelector('.popup__close-btn'); // document.querySelector('#element-cards-template').content.querySelector('.element')
 const elementCardsTemplate = document.querySelector('#element-cards-template'); // задаем template
 const addSectionCardsTemplate = document.querySelector('.elements'); // секция куда будут записаны карточки
 const cardsTemplateContent = elementCardsTemplate.content.querySelector('.element'); // переменная содержимого tamplate
@@ -131,38 +131,69 @@ const initialCards = [
   }
 ];
 
-function addCard(image, title) {
-  const cloneNewCard = cardsTemplateContent.cloneNode(true);
-  const cardImage = cloneNewCard.querySelector('.element__main-image');
-  const cardText = cloneNewCard.querySelector('.element__text');
-  cardImage.src = image;
-  cardText.textContent = title;
-  cardImage.alt = title;
+class Card {
+  constructor(name, link, templateSelector, openFullPhoto){
+    this._name = name;
+    this._link = link;
+    this._templateSelector = templateSelector;
+    this._openFullPhoto = openFullPhoto;
 
-  //  назначение слушателя кнопке like на положение active
-  cloneNewCard.querySelector('.element__button-like').addEventListener('click', likeButton);
+    this._getTemplate();
+    this._setEventListeners();
+  }
 
-  // назначение слушателя на удаление карточки по нажатию на кнопку с мусоркой
-  cloneNewCard.querySelector('.element__delete-btn').addEventListener('click', deleteCard)
+  _getTemplate() {
+    const cardTemplate = document.querySelector(this._templateSelector).content.querySelector('.element')
+    this._cardElement = cardTemplate.cloneNode(true);
 
-  // открытие большой картинки по нажатию мыши //
-  cardImage.addEventListener('click', openEditCardsButton);
-  return cloneNewCard;
+    this._cardImage = this._cardElement.querySelector('.element__main-image');
+    this._cardTitle = this._cardElement.querySelector('.element__text');
+    this._likeButton = this._cardElement.querySelector('.element__button-like');
+    this._trashButton = this._cardElement.querySelector('.element__delete-btn');
+    this._fullPhoto = document.querySelector('.popup__image-full');
+    this._fullPhotoTitle = document.querySelector('.popup__image-text');
+
+  }
+  _setEventListeners() {
+    this._likeButton.addEventListener('click', () => this._handleSetLike());
+    this._trashButton.addEventListener('click', () => this._handleDelCard());
+    this._cardImage.addEventListener('click', () => this._handleFullPhotoOpen());
+  }
+
+  _handleSetLike() {
+    this._likeButton.classList.toggle('element__button-like_active');
+  }
+
+  _handleDelCard() {
+    this._cardElement.remove();
+  }
+
+  _handleFullPhotoOpen() {
+    this._fullPhoto.src = this._link;
+    this._fullPhoto.alt = this._name;
+    this._fullPhotoTitle.textContent = this._name;
+
+    this._openFullPhoto(document.querySelector('.popup-full-image'));
+
+  }
+
+  generateCard() {
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
+
+    return this._cardElement;
+  }
 }
 
-// берем и назначаем методом перебора нужные нам селекторы для функции загрузки карточек //
-initialCards.forEach((item) => {
-  const newCard = addCard(item.link, item.name);
-  addSectionCardsTemplate.append(newCard);
-})
+function addCard(name, link, templateSelector, openFullPhoto) {
+  const card = new Card(name, link, templateSelector, openFullPhoto);
+  return card.generateCard();
+}
 
-// функция открытия full image //
-function openEditCardsButton(evt) {
-  imageValue.src = evt.target.src;
-  imageTextValue.textContent = evt.target.alt;
-  imageValue.alt = evt.target.alt;
-  openPopup(popupOpenImage);
-};
+initialCards.forEach((data) => {
+  addSectionCardsTemplate.append(addCard(data.name, data.link, '#element-cards-template', openPopup));
+})
 
 // слушатель на закрытие full image //
 popupFullImageCloseButton.addEventListener('click', () => {
