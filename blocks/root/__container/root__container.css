@@ -1,6 +1,5 @@
-.root__containter {
-  min-width: 320px;
-  max-width: 1280px;
-  width: 100%;
+.root__container {
+  max-width: 100vw;
+  min-height: 100vh;
   margin: 0 auto;
 }
