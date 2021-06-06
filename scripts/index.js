@@ -155,7 +155,7 @@ editProfileButton.addEventListener('click', handleClickAddButton);
 // функция добавления карточки после нажатия на кнопку сохранить //
 cardsForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  addSectionCardsTemplate.prepend(addCard(inputMainImageCards.value, inputTextCards.value, '#element-cards-template', openPopup))
+  addSectionCardsTemplate.prepend(addCard(inputTextCards.value, inputMainImageCards.value, '#element-cards-template', openPopup))
   cardsForm.reset();
   closePopup(cardsPopup);
 });
