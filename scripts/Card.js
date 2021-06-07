@@ -3,24 +3,23 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
-    this._openFullPhoto = openFullPhoto;
 
-    this._getTemplate();
-    this._setEventListeners();
-  }
-
-  _getTemplate() {
-    const cardTemplate = document.querySelector(this._templateSelector).content.querySelector('.element')
+    const cardTemplate = document.querySelector(this._templateSelector).content.querySelector('.element');
     this._cardElement = cardTemplate.cloneNode(true);
 
     this._cardImage = this._cardElement.querySelector('.element__main-image');
     this._cardTitle = this._cardElement.querySelector('.element__text');
     this._likeButton = this._cardElement.querySelector('.element__button-like');
     this._trashButton = this._cardElement.querySelector('.element__delete-btn');
+
+
+    this._openFullPhoto = openFullPhoto;
     this._fullPhoto = document.querySelector('.popup__image-full');
     this._fullPhotoTitle = document.querySelector('.popup__image-text');
 
+    this._setEventListeners();
   }
+
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => this._handleSetLike());
     this._trashButton.addEventListener('click', () => this._handleDelCard());

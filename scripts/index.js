@@ -47,7 +47,6 @@ const aboutInput = document.querySelector('.popup__input_change_profile-subtitle
 
 const elementCardsTemplate = document.querySelector('#element-cards-template'); // задаем template
 const addSectionCardsTemplate = document.querySelector('.elements'); // секция куда будут записаны карточки
-const cardsTemplateContent = elementCardsTemplate.content.querySelector('.element'); // переменная содержимого tamplate
 
 const cardsPopup = document.querySelector('.popup-add-cards'); // сам попап с карточками
 const editProfileButton = document.querySelector('.profile__add-button'); // кнопка открытия редактирования карточек с картинками и тектом
@@ -83,7 +82,6 @@ cardAddForm.enableValidation();
 function openPopup(openedPopup) {
   openedPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closeKeydownEsc);
-  formElement.reset();
 }
 
 // функция закрытия Popup //
