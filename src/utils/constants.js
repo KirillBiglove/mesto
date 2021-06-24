@@ -60,3 +60,13 @@ export const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+
+export const electors = {
+  imageSelector: '.elements',
+  popupProfile: '.popup-profile',
+  popupAddCard: '.popup-add-cards',
+  popupFullImage: '.popup-full-image',
+  profileTitle: '.profile__title',
+  profileSubtitle: '.profile__subtitle'
+}

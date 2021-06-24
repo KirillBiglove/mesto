@@ -15,4 +15,8 @@ export default class Sections {
   addItem(item) {
     this._containterSelector.append(item);
   }
+
+  addPrependItem(item) {
+    this._containterSelector.prepend(item);
+  }
 };
