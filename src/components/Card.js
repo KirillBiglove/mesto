@@ -1,7 +1,8 @@
+import Popup from "./Popup.js";
+
 export default class Card {
-  constructor(name, link, templateSelector, openFullPhoto){
-    this._name = name;
-    this._link = link;
+  constructor(data, templateSelector, openFullPhoto){
+    this._data = data;
     this._templateSelector = templateSelector;
 
     this._getTemplate();
@@ -23,7 +24,6 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => this._handleSetLike());
     this._trashButton.addEventListener('click', () => this._handleDelCard());
-    this._cardImage.addEventListener('click', () => this._handleFullPhotoOpen());
   }
 
   _handleSetLike() {
@@ -44,9 +44,9 @@ export default class Card {
   }
 
   generateCard() {
-    this._cardImage.src = this._link;
-    this._cardImage.alt = this._name;
-    this._cardTitle.textContent = this._name;
+    this._cardImage.src = this._data.link;
+    this._cardImage.alt = this._data.name;
+    this._cardTitle.textContent = this._data.name;
 
     this._setEventListeners();
 
