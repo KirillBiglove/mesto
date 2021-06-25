@@ -27,21 +27,24 @@ import PopupWithForm from '../components/PopupWithForm.js';
 
 // массив карточек //
 const cardSection = new Sections({
-    item: initialCards,
+    items: initialCards,
     renderer: (item) => {
         cardSection.addItem(createCard(item));
     }
 }, electors.imageSelector);
 
+cardSection.renderer();
+
+
 // создание и отрисовка карточек в DOM //
-const createCard = (item) => {
+function createCard(item) {
     const card = new Card(item, '#element-cards-template', () => {
         popupWithImage.open(item);
     });
     return card.generateCard();
 }
 
-cardSection.renderer(initialCards);
+
 
 // full image //
 const popupWithImage = new PopupWithImage ({
@@ -65,6 +68,8 @@ const addCardPopup = new PopupWithForm ({
   cardAddForm.enableValidation();
 
   editProfileButton.addEventListener('click', () => {
+    cardAddForm.clearInputErrors();
+    cardAddForm.toggleButtonState();
     addCardPopup.open();
 })
 
@@ -82,7 +87,7 @@ const editProfilePopup = new PopupWithForm ({
 // слушатель на открытие редактирования профиля
 popupOpenButton.addEventListener('click', () => {
     const newUserInfo = userInfo.getUserinfo();
-    profileName.value = newUserInfo.textContent;
-    profileAbout.value = newUserInfo.textContent;
+    profileName.value = newUserInfo.name.textContent;
+    profileAbout.value = newUserInfo.about.textContent;
     editProfilePopup.open();
 })

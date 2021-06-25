@@ -1,9 +1,11 @@
 import Popup from "./Popup.js";
 
 export default class Card {
-  constructor(data, templateSelector, openFullPhoto){
-    this._data = data;
+  constructor(data, templateSelector, handleFullPhotoOpen){
+    this._link = data.link;
+    this._name = data.name;
     this._templateSelector = templateSelector;
+    this._handleFullPhotoOpen = handleFullPhotoOpen;
 
     this._getTemplate();
 
@@ -12,7 +14,6 @@ export default class Card {
     this._likeButton = this._cardElement.querySelector('.element__button-like');
     this._trashButton = this._cardElement.querySelector('.element__delete-btn');
 
-    this._openFullPhoto = openFullPhoto;
     this._fullPhoto = document.querySelector('.popup__image-full');
     this._fullPhotoTitle = document.querySelector('.popup__image-text');
 
@@ -24,6 +25,7 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => this._handleSetLike());
     this._trashButton.addEventListener('click', () => this._handleDelCard());
+    this._fullPhoto.addEventListener('click', () => this._handleFullPhotoOpen());
   }
 
   _handleSetLike() {
@@ -34,19 +36,10 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  _handleFullPhotoOpen() {
-    this._fullPhoto.src = this._link;
-    this._fullPhoto.alt = this._name;
-    this._fullPhotoTitle.textContent = this._name;
-
-    this._openFullPhoto(document.querySelector('.popup-full-image'));
-
-  }
-
   generateCard() {
-    this._cardImage.src = this._data.link;
-    this._cardImage.alt = this._data.name;
-    this._cardTitle.textContent = this._data.name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
 
     this._setEventListeners();
 
