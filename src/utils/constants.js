@@ -1,13 +1,9 @@
 ////// ПЕРЕМЕННЫЕ //////////
-export const profilePopup = document.querySelector('.popup-profile'); // переменная самого попапа
+
 export const popupOpenButton = document.querySelector('.profile__edit-button'); // открыть попап
 export const popupCloseButton = document.querySelector('.popup__close-btn'); // закрыть попап
 
 export const formElement = document.querySelector('.popup__container'); // форма попапа
-
-export const profileName = document.querySelector('.profile__title'); // переменные куда будет записана информация из попапа
-export const profileAbout = document.querySelector('.profile__subtitle'); // аналогичная переменная для записи информации
-
 export const nameInput = document.querySelector('.popup__input_change_profile-title'); // переменная откуда информация будет записана в profileName
 export const aboutInput = document.querySelector('.popup__input_change_profile-subtitle'); //переменная откуда информация будет записана в profileAbout
 

@@ -6,9 +6,6 @@ import FormValidator from '../components/FormValidator.js';
 
 import {
     initialCards,
-    profilePopup,
-    profileName,
-    profileAbout,
     formElement,
     cardsForm,
     config,
