@@ -63,7 +63,6 @@ const addCardPopup = new PopupWithForm ({
 
   editProfileButton.addEventListener('click', () => {
     cardAddForm.clearInputErrors();
-    cardAddForm.toggleButtonState();
     addCardPopup.open();
 })
 
@@ -80,10 +79,9 @@ const editProfilePopup = new PopupWithForm ({
 
 // слушатель на открытие редактирования профиля
 popupOpenButton.addEventListener('click', () => {
-    const { name: name, about: about } = userInfo.getUserinfo();
-    name.textContent = nameInput.value;
-    about.textContent = aboutInput.value;
+  const { name, about } = userInfo.getUserinfo();
+  nameInput.value = name;
+  aboutInput.value = about;
     profileEditForm.clearInputErrors();
-    profileEditForm.toggleButtonState();
     editProfilePopup.open();
 })

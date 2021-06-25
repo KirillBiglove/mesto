@@ -73,9 +73,9 @@ export default class FormValidator {
 // переключение кнопки в зависимости от валидности или не валидности инпутов
 
   clearInputErrors = () => {
+    this.toggleButtonState();
     this._inputList.forEach(inputElement => {
       this._hideInputError(inputElement);
-      this.toggleButtonState();
     });
   }
 
