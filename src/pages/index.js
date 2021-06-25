@@ -44,17 +44,14 @@ function createCard(item) {
     return card.generateCard();
 }
 
-
-
 // full image //
 const popupWithImage = new PopupWithImage ({
   popupSelector: electors.popupFullImage
 });
-
 popupWithImage.setEventListeners();
 
-// получение данных в редактировании профиля //
 
+// получение данных в редактировании профиля //
 const userInfo = new UserInfo({
     nameSelector: electors.profileTitle,
     infoSelector: electors.profileSubtitle
@@ -86,8 +83,10 @@ const editProfilePopup = new PopupWithForm ({
 
 // слушатель на открытие редактирования профиля
 popupOpenButton.addEventListener('click', () => {
-    const newUserInfo = userInfo.getUserinfo();
-    profileName.value = newUserInfo.name.textContent;
-    profileAbout.value = newUserInfo.about.textContent;
+    const { name: name, about: about } = userInfo.getUserinfo();
+    name.textContent = nameInput.value;
+    about.textContent = aboutInput.value;
+    profileEditForm.clearInputErrors();
+    profileEditForm.toggleButtonState();
     editProfilePopup.open();
 })

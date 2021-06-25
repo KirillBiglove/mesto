@@ -25,7 +25,7 @@ export default class Card {
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => this._handleSetLike());
     this._trashButton.addEventListener('click', () => this._handleDelCard());
-    this._fullPhoto.addEventListener('click', () => this._handleFullPhotoOpen());
+    this._cardImage.addEventListener('click', () => this._handleFullPhotoOpen());
   }
 
   _handleSetLike() {
