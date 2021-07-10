@@ -20,6 +20,8 @@ export const inputTextCards = document.querySelector('.popup__input_change-text'
 export const popupOpenImage = document.querySelector('.popup-full-image'); // сам попап с открытием большой картинки
 export const popupFullImageCloseButton = document.querySelector('.popup__image-full-close-btn'); // кнопка закрытия большой картинки
 
+export const profileAvatarContainer = document.querySelector('.profile__avatar-change-icon');
+
 export const config = { // конфиг для валидации
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -64,5 +66,8 @@ export const electors = {
   popupAddCard: '.popup-add-cards',
   popupFullImage: '.popup-full-image',
   profileTitle: '.profile__title',
-  profileSubtitle: '.profile__subtitle'
+  profileSubtitle: '.profile__subtitle',
+  popupAvatar: '.root__popup-profile-image',
+  userAvatar: '.profile__avatar'
+
 }
