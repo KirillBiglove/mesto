@@ -56,7 +56,7 @@
                         minlength="2" maxlength="200" required>
                     <span id="popup__input_type_about-error" class="popup__error"></span>
                 </fieldset>
-                <button type="submit" class="popup__button popup__save-btn" disabled></button>
+                <button type="submit" class="popup__button popup__button-disabled popup__save-btn" disabled></button>
             </form>
         </div>
     </div>
@@ -88,6 +88,25 @@
             <p class="popup__image-text"></p>
         </div>
     </div>
+
+    <!--deleteCardPopup-->
+    <div class="popup root__popup-delete-card popup-delete-card">
+      <button type="button" class="popup__delete-close-btn popup-button-close link"></button>
+        <form class="popup__form popup__form-delete">
+          <h2 class="popup__title popup__title-delete">Вы уверены?</h2>
+          <button class="popup__button popup__save-btn popup__save-btn-delete" type="submit"></button>
+      </form>
+    </div>
+
+      <div class="popup root__popup-profile-image">
+        <button type="button" class="popup__delete-close-btn popup-button-close link"></button>
+          <form class="popup__form popup__form-profile-image">
+              <h2 class="popup__title popup__title-profile-image">Обновить Аватар</h2>
+              <input id="popup__input_type_profile_image" class="popup__input popup__input_type_profile_image" name="link" value="" placeholder="Ссылка на картинку" type="url" required>
+              <span id="popup__input_type_profile_image-error" class="popup__error"></span>
+              <button type="submit" class="popup__button popup__button-disabled popup__save-btn" disabled></button>
+          </form>
+        </div>
     <!-- elementCardsTemplate -->
     <template id="element-cards-template">
         <article class="element">
@@ -96,8 +115,11 @@
                 <button class="element__delete-btn" type="button" aria-label="delete-button"></button>
             </div>
             <div class="element__container">
-                <h3 class="element__text"></h3>
-                <button class="element__button-like" type="button" aria-label="like-button"></button>
+              <h3 class="element__text"></h3>
+               <div class="element__like-container">
+                 <button class="element__button-like" type="button" aria-label="like-button"></button>
+                 <p class="element__like-counter"></p>
+                </div>
             </div>
         </article>
     </template>

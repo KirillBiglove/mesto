@@ -1,0 +1,13 @@
+.popup__button-disabled:disabled {
+  background-image: url(../../../images/save_button-disabled.svg);
+}
+
+
+@media (max-width: 630px){
+  .popup__button-disabled:disabled {
+    background-image: url(../../../images/save_button-disabled.svg);
+    background-size: 238px 46px;
+    background-repeat: no-repeat;
+    margin: 15px auto 0;
+  }
+}
