@@ -104,19 +104,16 @@ const addCardPopup = new PopupWithForm({
   popupSelector: electors.popupAddCard
 }, formPhotoSubmit);
 
-//// /////
 const formPhotoSubmit = (inputs) => {
-
+  
   api.addCard(inputs.name, inputs.link)
-      .then((data) => {
-          cardsSection.addPrependItem(createCard(data, userId, '#element-cards-template'));
-          photoPopup.close();
-      })
-      .catch(err => showError(err))
-      .finally(() => {
-      })
+    .then((data => {
+      cardSection.addPrependItem(createCard(data, userId, '#element-cards-template'));
+      addCardPopup.close();
+    })
+    .catch(err => showError(err))
+    .finally(() => {}))
 }
-
 
 const cardAddForm = new FormValidator(config, cardsForm); // проверка валидации попапа добавления новых карточек
 cardAddForm.enableValidation();
@@ -131,7 +128,8 @@ editProfileButton.addEventListener('click', () => {
 // часть отвечающая за редактирование профиля //
 const editProfilePopup = new PopupWithForm({
   popupSelector: electors.popupProfile
-},);
+},
+  inputs => userInfo.setUserInfo(inputs));
 
 // часть отвечающая за валидацию редактирования профиля//
 const profileEditForm = new FormValidator(config, formElement); // проверка валидации попапа редактирования профиля
