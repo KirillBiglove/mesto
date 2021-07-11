@@ -60,6 +60,8 @@ const cardSection = new Sections({
   }
 }, electors.imageSelector);
 
+
+// функция создания карточки и функционала //
 function createCard(item, userId, templateSelector) {
   const card = new Card(item, userId, templateSelector, {
     handleCardClick: (name, link) => {
@@ -84,14 +86,6 @@ function createCard(item, userId, templateSelector) {
   return newCard;
 }
 
-// создание и отрисовка карточек в DOM //
-//function createCard(item) {
-//    const card = new Card(item, '#element-cards-template', () => {
-//        popupWithImage.open(item);
-//    });
-//    return card.generateCard();
-//}
-
 // full image //
 const popupWithImage = new PopupWithImage({
   popupSelector: electors.popupFullImage
@@ -108,8 +102,21 @@ const userInfo = new UserInfo({
 //////////////// ADD CARD POPUP ////////////////
 const addCardPopup = new PopupWithForm({
   popupSelector: electors.popupAddCard
-},
-  item => cardSection.addPrependItem(createCard(item)));
+}, formPhotoSubmit);
+
+//// /////
+const formPhotoSubmit = (inputs) => {
+
+  api.addCard(inputs.name, inputs.link)
+      .then((data) => {
+          cardsSection.addPrependItem(createCard(data, userId, '#element-cards-template'));
+          photoPopup.close();
+      })
+      .catch(err => showError(err))
+      .finally(() => {
+      })
+}
+
 
 const cardAddForm = new FormValidator(config, cardsForm); // проверка валидации попапа добавления новых карточек
 cardAddForm.enableValidation();
@@ -124,8 +131,7 @@ editProfileButton.addEventListener('click', () => {
 // часть отвечающая за редактирование профиля //
 const editProfilePopup = new PopupWithForm({
   popupSelector: electors.popupProfile
-},
-  inputs => userInfo.setUserInfo(inputs));
+},);
 
 // часть отвечающая за валидацию редактирования профиля//
 const profileEditForm = new FormValidator(config, formElement); // проверка валидации попапа редактирования профиля
