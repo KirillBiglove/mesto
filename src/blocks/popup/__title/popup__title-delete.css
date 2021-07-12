@@ -2,3 +2,9 @@
   margin: 0 0 38px;
   padding: 0;
 }
+
+@media (max-width: 630px){
+  .popup__title-delete {
+    margin: 0 0 15px;
+  }
+}

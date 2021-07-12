@@ -27,18 +27,18 @@ export default class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: `Биглов Кирилл`,
-        about: `недопрограммист`,
+        name: `Biglove`,
+        about: `frontEndLooser`,
       })
     })
       .then(res => this._checkResult(res));
   }
-  
+
   addCard(name, link) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON. stringify({
+      body: JSON.stringify({
         name: name,
         link: link,
       })
@@ -46,29 +46,29 @@ export default class Api {
       .then(res => this._checkResult(res))
   }
 
+  setLike(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
+      method: 'PUT',
+      headers: this._headers,
+    })
+      .then(res => this._checkResult(res));
+  }
+
+  deleteLike(cardId) {
+    return fetch(`${this._url}/cards/likes/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    })
+      .then(res => this._checkResult(res));
+  }
+
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
     })
-      .then(res => this._checkResult(res))
+      .then(res => this._checkResult(res));
   }
-
-  setLike(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
-        method: 'PUT',
-        headers: this._headers,
-    })
-        .then(res => this._checkResult(res));
-}
-
-   deleteLike(cardId) {
-        return fetch(`${this._url}/cards/likes/${cardId}`, {
-            method: 'DELETE',
-            headers: this._headers,
-        })
-            .then(res => this._checkResult(res));
-    }
 
   changeAvatar(avatarUrl) {
     return fetch(`${this._url}/users/me/avatar`, {
@@ -82,7 +82,7 @@ export default class Api {
   }
 
   _checkResult(res) {
-    if(res.ok) {
+    if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Ошибка: ${res.status}`);

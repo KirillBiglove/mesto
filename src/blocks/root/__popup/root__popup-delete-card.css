@@ -1,3 +1,10 @@
 .root__popup-delete-card {
   flex-direction: column;
 }
+
+@media (max-width: 630px) {
+  .root__popup-delete-card {
+    margin: 0 auto;
+    max-width: 282px;
+  }
+}

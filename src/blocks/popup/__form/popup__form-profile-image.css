@@ -8,3 +8,10 @@
   margin: 0;
   padding: 34px;
 }
+
+
+@media (max-width: 630px) {
+  .popup__form-profile-image {
+    max-width: 282px;
+  }
+}

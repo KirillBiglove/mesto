@@ -1,5 +1,5 @@
 import './index.css';
-import Sections from '../components/Section';
+import Sections from '../components/Section.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 
@@ -16,13 +16,15 @@ import {
   aboutInput,
   profileAvatarContainer,
   userAvatar,
+  avatarForm
 
 } from '../utils/constants';
 
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import Api from '../components/Api';
+import Api from '../components/Api.js';
+import PopupWithSubmit from '../components/popupWithSubmit.js';
 
 
 // АПИ //
@@ -48,10 +50,10 @@ api.getData()
   })
   .catch(data => { showError(data) });
 
+
 function showError(err) {
   console.log(err);
 }
-
 
 // массив карточек //
 const cardSection = new Sections({
@@ -59,7 +61,6 @@ const cardSection = new Sections({
     cardSection.addItem(createCard(cardData, userId, '#element-cards-template'));
   }
 }, electors.imageSelector);
-
 
 // функция создания карточки и функционала //
 function createCard(item, userId, templateSelector) {
@@ -92,28 +93,27 @@ const popupWithImage = new PopupWithImage({
 });
 popupWithImage.setEventListeners();
 
-
 // получение данных в редактировании профиля //
 const userInfo = new UserInfo({
   nameSelector: electors.profileTitle,
   infoSelector: electors.profileSubtitle,
   avatarSelector: electors.userAvatar
 });
+
 //////////////// ADD CARD POPUP ////////////////
-const addCardPopup = new PopupWithForm({
-  popupSelector: electors.popupAddCard
-}, formPhotoSubmit);
 
 const formPhotoSubmit = (inputs) => {
-  
   api.addCard(inputs.name, inputs.link)
-    .then((data => {
+    .then((data) => {
       cardSection.addPrependItem(createCard(data, userId, '#element-cards-template'));
       addCardPopup.close();
     })
     .catch(err => showError(err))
-    .finally(() => {}))
 }
+
+const addCardPopup = new PopupWithForm({
+  popupSelector: electors.popupAddCard
+}, formPhotoSubmit);
 
 const cardAddForm = new FormValidator(config, cardsForm); // проверка валидации попапа добавления новых карточек
 cardAddForm.enableValidation();
@@ -125,11 +125,21 @@ editProfileButton.addEventListener('click', () => {
 
 //////////////// PROFILE POPUP ////////////////
 
-// часть отвечающая за редактирование профиля //
+// форма изменения и получения с сервера данных в профиль //
+const formEditSubmit = (inputs) => {
+  api.editProfile(inputs.name, inputs.about)
+    .then(() => {
+      userInfo.setUserInfo(inputs);
+      editProfilePopup.close();
+    })
+    .catch(err => showError(err))
+    .finally (() => {});
+} 
+
+// редактирование профиля с функцией изменения и получения с сервера данных в профиль //
 const editProfilePopup = new PopupWithForm({
   popupSelector: electors.popupProfile
-},
-  inputs => userInfo.setUserInfo(inputs));
+}, formEditSubmit);
 
 // часть отвечающая за валидацию редактирования профиля//
 const profileEditForm = new FormValidator(config, formElement); // проверка валидации попапа редактирования профиля
@@ -147,10 +157,42 @@ popupOpenButton.addEventListener('click', () => {
 
 ////////////////////// POPUP EDIT PROFILE AVATAR /////////////////////
 
+const formChangeAvatar = (inputs) => {
+  api.changeAvatar(inputs['link'])
+    .then(() => {
+      userInfo.setAvatar(inputs['link']);
+      popupEditAvatar.close();
+    })
+    .catch(err => showError(err))
+    .finally(() => {})
+}
+
 const popupEditAvatar = new PopupWithForm({
   popupSelector: electors.popupAvatar
-})
+}, formChangeAvatar)
+
+const popupAvatarEditForm = new FormValidator(config, avatarForm)
+popupAvatarEditForm.enableValidation();
 
 profileAvatarContainer.addEventListener('click', function () {
+  popupAvatarEditForm.clearInputErrors();
   popupEditAvatar.open()
 })
+
+const formDeleteCard = (evt, card) => {
+  evt.preventDefault();
+
+  api.deleteCard(card.getCardId())
+      .then(res => {
+          card.removeCard();
+          popupWithDelete.close();
+      })
+      .catch(err => showError(err))
+}
+
+
+const popupWithDelete = new PopupWithSubmit({
+  popupSelector: electors.popupDeleteCard
+}, (evt, card) => {
+  formDeleteCard(evt, card)
+});

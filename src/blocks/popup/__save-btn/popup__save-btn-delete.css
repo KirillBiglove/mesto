@@ -3,3 +3,12 @@
   margin: 0;
   max-width: 430px;
 }
+
+@media (max-width: 630px){
+  .popup__save-btn-delete {
+    background-image: url(../../../images/Rectangle_delete-card.svg);
+    background-size: 238px 46px;
+    background-repeat: no-repeat;
+    margin: 15px auto 0;
+  }
+}
