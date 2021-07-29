@@ -5,17 +5,16 @@ export default class PopupWithSubmit extends Popup {
     super({ popupSelector })
 
     this._submit = submit;
-
     this._form = this._popupElement.querySelector('.popup__form');
+    this._setEventListeners();
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     this._form.addEventListener('submit', (evt) => {
-      this._submit(evt, this._card);
+        this._submit(evt, this._card);
     });
     super.setEventListeners();
-  }
-
+}
   open(card) {
     this._card = card;
     super.open();

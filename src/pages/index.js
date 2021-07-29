@@ -29,9 +29,9 @@ import PopupWithSubmit from '../components/popupWithSubmit.js';
 
 // АПИ //
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-26',
   headers: {
-    authorization: 'a80944c1-0d90-4430-89e2-87c35ed0d099',
+    authorization: 'ad833f77-198c-45de-941f-7b297c4a16d2',
     'Content-Type': 'application/json'
   }
 });
@@ -62,30 +62,7 @@ const cardSection = new Sections({
   }
 }, electors.imageSelector);
 
-// функция создания карточки и функционала //
-function createCard(item, userId, templateSelector) {
-  const card = new Card(item, userId, templateSelector, {
-    handleCardClick: (name, link) => {
-      popupWithImage.open(name, link);
-    },
-    handleCardLike: () => {
-      const likesCounter = card.likesCounter();
-      const result = likesCounter ? api.deleteLike(card.getCardId()) : api.setLike(card.getCardId());
 
-      result
-        .then(data => {
-          card.setLike(data.likes);
-          card.renderLikes();
-        })
-        .catch(err => showError(err));
-    },
-    handleCardDelete: () => {
-      popupWithDelete.open(card);
-    }
-  }, item._id);
-  const newCard = card.generateCard();
-  return newCard;
-}
 
 // full image //
 const popupWithImage = new PopupWithImage({
@@ -103,6 +80,8 @@ const userInfo = new UserInfo({
 //////////////// ADD CARD POPUP ////////////////
 
 const formPhotoSubmit = (inputs) => {
+  addCardPopup.onLoadingButton();
+
   api.addCard(inputs.name, inputs.link)
     .then((data) => {
       cardSection.addPrependItem(createCard(data, userId, '#element-cards-template'));
@@ -127,14 +106,18 @@ editProfileButton.addEventListener('click', () => {
 
 // форма изменения и получения с сервера данных в профиль //
 const formEditSubmit = (inputs) => {
+  editProfilePopup.onLoadingButton();
+
   api.editProfile(inputs.name, inputs.about)
     .then(() => {
       userInfo.setUserInfo(inputs);
       editProfilePopup.close();
     })
     .catch(err => showError(err))
-    .finally (() => {});
-} 
+    .finally (() => {
+      editProfilePopup.offLoadingButton();
+    });
+}
 
 // редактирование профиля с функцией изменения и получения с сервера данных в профиль //
 const editProfilePopup = new PopupWithForm({
@@ -158,13 +141,17 @@ popupOpenButton.addEventListener('click', () => {
 ////////////////////// POPUP EDIT PROFILE AVATAR /////////////////////
 
 const formChangeAvatar = (inputs) => {
+  popupEditAvatar.onLoadingButton();
+
   api.changeAvatar(inputs['link'])
     .then(() => {
       userInfo.setAvatar(inputs['link']);
       popupEditAvatar.close();
     })
     .catch(err => showError(err))
-    .finally(() => {})
+    .finally(() => {
+      popupEditAvatar.offLoadingButton();
+    })
 }
 
 const popupEditAvatar = new PopupWithForm({
@@ -190,9 +177,37 @@ const formDeleteCard = (evt, card) => {
       .catch(err => showError(err))
 }
 
-
 const popupWithDelete = new PopupWithSubmit({
   popupSelector: electors.popupDeleteCard
 }, (evt, card) => {
   formDeleteCard(evt, card)
 });
+
+// функция создания карточки и функционала //
+function createCard(item, userId, templateSelector) {
+  const card = new Card(item, userId, templateSelector, {
+    handleCardClick: (name, link) => {
+      popupWithImage.open(name, link);
+    },
+    handleCardLike: () => {
+      const likesCounter = card.likesCounter();
+      const result = likesCounter ? api.deleteLike(card.getCardId()) : api.setLike(card.getCardId());
+
+      result
+        .then(data => {
+          card.setLike(data.likes);
+          card.renderLikes();
+        })
+        .catch(err => showError(err));
+    },
+    handleCardDelete: () => {
+      popupWithDelete.open(card);
+    }
+  }, item._id);
+  const newCard = card.generateCard();
+  return newCard;
+}
+
+popupWithDelete.setEventListeners();
+
+

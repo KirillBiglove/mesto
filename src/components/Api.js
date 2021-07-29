@@ -27,8 +27,8 @@ export default class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: `Biglove`,
-        about: `frontEndLooser`,
+        name: `Kirill Biglove`,
+        about: `not programmist^^`,
       })
     })
       .then(res => this._checkResult(res));
