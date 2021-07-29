@@ -8,7 +8,6 @@ export default class PopupWithForm extends Popup {
         this._inputList = Array.from(this._formElement.querySelectorAll('.popup__input'));
 
         this._submitButton = this._formElement.querySelector('.popup__save-btn');
-        //this._submitButtonLoading = this._submitButton.classList.add('.popup__save-btn-loading')
 
     }
 
