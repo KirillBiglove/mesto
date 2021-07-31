@@ -24,7 +24,7 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import Api from '../components/Api.js';
-import PopupWithSubmit from '../components/popupWithSubmit.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
 
 
 // АПИ //
@@ -48,7 +48,7 @@ api.getData()
     userId = dataUser._id;
     cardSection.renderAll(dataCards);
   })
-  .catch(data => { showError(data) });
+  .catch(showError);
 
 
 function showError(err) {
